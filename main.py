@@ -53,7 +53,8 @@ def remove_stopwords(text:str, language:str):
     # Add extra words to take into account common "typos" of internet talk
     if language == 'portuguese':
         [stop_words.add(w) for w in [
-            "eh", "pra", "q", "pq", "nao", "ta", "n", "tb"
+            "eh", "pra", "q", "pq", "nao", "ta", "n", "tb", "vc","voce",
+            "ai","aí","tbm","mt","vcs","pro","la","tao","ja"
         ]]
     elif language == 'english':
         [stop_words.add(w) for w in [
