@@ -3,7 +3,7 @@
 set -euo pipefail
 
 HERE="$(dirname "$(readlink -f "$0")")"
-VENVDIR="$HERE/pdfutils.venv"
+VENVDIR="$HERE/wpp.venv"
 REQS="$HERE/requirements.txt"
 
 export PYTHONPATH="$HERE"
