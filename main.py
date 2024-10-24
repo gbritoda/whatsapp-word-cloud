@@ -66,6 +66,7 @@ def remove_stopwords(text:str, language:str):
             my your his her our their
             need think one bc
             and or if then the a to of
+            em n
             """.split()
         ]
     elif language == 'french':
@@ -83,7 +84,8 @@ def remove_stopwords(text:str, language:str):
 
 
 # Generate and display the word cloud
-def generate_wordcloud(cleaned_text):
+def generate_wordcloud(cleaned_text:str):
+    cleaned_text = cleaned_text.title() # Make case insensitive, but also all words start capitalised
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(cleaned_text)
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
