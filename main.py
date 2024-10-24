@@ -52,16 +52,31 @@ def remove_stopwords(text:str, language:str):
     
     # Add extra words to take into account common "typos" of internet talk
     if language == 'portuguese':
-        [stop_words.add(w) for w in [
-            "eh", "pra", "q", "pq", "nao", "ta", "n", "tb", "vc","voce",
-            "ai","aí","tbm","mt","vcs","pro","la","tao","ja"
-        ]]
+        [stop_words.add(w) for w in
+            """eh pra q pq nao ta n tb vc voce
+            ai aí tbm mt vcs pro la tao ja
+            """.split()
+        ]
     elif language == 'english':
-        [stop_words.add(w) for w in [
-            'one','oh','im','ill','thats','well','dont','ive','cant',
-            'need','think','theres','youre','hes','shes','its','didnt','got','bit',
-            'theyre','wont','id','youve','youll','doesnt'
-        ]]
+        [stop_words.add(w) for w in
+            """oh ill thats well dont cant
+            theres didnt got bit wont doesnt
+            i you she he it im youre theyre shes hes its
+            ill youll ive youve id youd
+            my your his her our their
+            need think one bc
+            and or if then the a to of
+            """.split()
+        ]
+    elif language == 'french':
+        [stop_words.add(w) for w in
+            """le la les de du des un une
+            mon ma mes ton ta tes son sa ses lui leur leurs
+            je tu elle elles il ils on nous vous on
+            et ou ne pas si à
+            pcq pk
+            """.split()
+        ]
     words = text.split()
     cleaned_text = ' '.join([word for word in words if word.lower() not in stop_words])
     return cleaned_text
